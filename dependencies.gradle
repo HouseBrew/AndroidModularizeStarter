@@ -1,0 +1,98 @@
+ext {
+    final support_library_version = '28.0.0-alpha3'
+    final epoxy_version = '2.7.3'
+    final anko_version = '0.10.3'
+    final room_version = '1.1.1'
+    final lifecycle_version = '1.1.1'
+    final fresco_version = '1.5.0'
+    final kodein_version = '5.0.0'
+    final work_version = "1.0.0-alpha04"
+
+    supportedLibraries = [
+            appCompat         : "com.android.support:appcompat-v7:$support_library_version",
+            design            : "com.android.support:design:$support_library_version",
+            supportedV4       : "com.android.support:support-v4:$support_library_version",
+            supportAnnotations: "com.android.support:support-annotations:$support_library_version",
+            constraintLayout  : 'com.android.support.constraint:constraint-layout:1.1.0',
+            multidex          : 'com.android.support:multidex:1.0.3',
+            databindgCompiler : "com.android.databinding:compiler:3.1.0",
+            ktx               : 'androidx.core:core-ktx:0.3',
+            lifecycle         : "android.arch.lifecycle:extensions:$lifecycle_version",
+            workManager       : "android.arch.work:work-runtime:$work_version"
+    ]
+
+    room = [
+            runtime : "android.arch.persistence.room:runtime:$room_version",
+            rxjava2 : "android.arch.persistence.room:rxjava2:$room_version",
+            compiler: "android.arch.persistence.room:compiler:$room_version"
+    ]
+
+    fresco = [
+            fresco     : "com.facebook.fresco:fresco:$fresco_version",
+            animatedGif: "com.facebook.fresco:animated-gif:$fresco_version"
+    ]
+
+    stetho = [
+            stetho: 'com.facebook.stetho:stetho:1.5.0',
+            okhttp: 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    ]
+
+    rx = [
+            rxJava   : 'io.reactivex.rxjava2:rxjava:2.1.7',
+            rxAndroid: 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            rxBinding: 'com.jakewharton.rxbinding2:rxbinding:2.0.0',
+    ]
+
+    epoxy = [
+            epoxy      : "com.airbnb.android:epoxy:$epoxy_version",
+            databinding: "com.airbnb.android:epoxy-databinding:$epoxy_version",
+            processor  : "com.airbnb.android:epoxy-processor:$epoxy_version",
+    ]
+
+    anko = [
+            common: "org.jetbrains.anko:anko-commons:$anko_version",
+    ]
+
+    testDependencies = [
+            jUnit          : 'junit:junit:4.12',
+            mockitoCore    : 'org.mockito:mockito-core:2.18.3',
+            mockitoAndroid : 'org.mockito:mockito-android:2.18.3',
+            espressoCore   : 'com.android.support.test.espresso:espresso-core:3.0.2',
+            espressoContrib: 'com.android.support.test.espresso:espresso-contrib:3.0.2',
+            espressoIntents: 'com.android.support.test.espresso:espresso-intents:3.0.2',
+            testRunner     : 'com.android.support.test:runner:1.0.2',
+            mockitoKotlin  : "com.nhaarman:mockito-kotlin:1.5.0",
+            dexOpener      : 'com.github.tmurakami:dexopener:0.13.1',
+            rx2Idler       : 'com.squareup.rx.idler:rx2-idler:0.9.0'
+    ]
+
+    lottie = 'com.airbnb.android:lottie:2.5.3'
+
+    timber = 'com.jakewharton.timber:timber:4.7.0'
+
+    gson = 'com.google.code.gson:gson:2.8.4'
+
+    javaxAnnotation = 'javax.annotation:jsr250-api:1.0'
+
+    kotlinLib = [
+            stdLib: "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    ]
+
+    jetbrainsAnnotations = 'org.jetbrains:annotations:13.0'
+
+    kodein = [
+            core   : "org.kodein.di:kodein-di-generic-jvm:$kodein_version",
+            android: "org.kodein.di:kodein-di-framework-android:$kodein_version"
+    ]
+
+    deepLinkDispatch = [
+            core     : 'com.airbnb:deeplinkdispatch:3.1.1',
+            processor: 'com.airbnb:deeplinkdispatch-processor:3.1.1'
+    ]
+
+    retrofit = [
+            core         : 'com.squareup.retrofit2:retrofit:2.4.0',
+            gsonConverter: 'com.squareup.retrofit2:converter-gson:2.4.0',
+            rx2Adapter   : 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    ]
+}

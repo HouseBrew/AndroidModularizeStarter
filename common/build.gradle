@@ -1,0 +1,89 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tool_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api supportedLibraries.appCompat
+    api supportedLibraries.design
+    api supportedLibraries.supportedV4
+    api supportedLibraries.supportAnnotations
+    api supportedLibraries.constraintLayout
+    api supportedLibraries.ktx
+    api supportedLibraries.lifecycle
+    api supportedLibraries.workManager
+
+    api fresco.fresco
+    api rx.rxJava
+    api rx.rxAndroid
+    api rx.rxBinding
+
+    api kodein.core
+    api kodein.android
+
+    api stetho.stetho
+    api stetho.okhttp
+
+    api retrofit.core
+    api retrofit.gsonConverter
+    api retrofit.rx2Adapter
+
+    api epoxy.epoxy
+    api epoxy.databinding
+    kapt epoxy.processor
+
+    api lottie
+
+    api gson
+
+    api kotlinLib.stdLib
+
+    api timber
+
+    api anko.common
+
+    api room.runtime
+    api room.rxjava2
+    kapt room.compiler
+
+    api deepLinkDispatch.core
+    kapt deepLinkDispatch.processor
+
+    implementation testDependencies.jUnit
+    implementation testDependencies.mockitoCore
+    implementation testDependencies.mockitoAndroid
+    implementation testDependencies.espressoCore
+    implementation testDependencies.espressoContrib
+    implementation testDependencies.espressoIntents
+    implementation testDependencies.testRunner
+    implementation testDependencies.dexOpener
+    implementation testDependencies.rx2Idler
+    implementation(testDependencies.mockitoKotlin) {
+        exclude group: 'org.jetbrains.kotlin'
+        exclude group: 'org.mockito'
+    }
+}
