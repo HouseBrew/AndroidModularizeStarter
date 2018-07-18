@@ -37,6 +37,9 @@ dependencies {
     api supportedLibraries.lifecycle
     api supportedLibraries.workManager
 
+    api nav.fragment
+    api nav.ui
+
     api fresco.fresco
     api rx.rxJava
     api rx.rxAndroid
@@ -56,8 +59,6 @@ dependencies {
     api epoxy.databinding
     kapt epoxy.processor
 
-    api lottie
-
     api gson
 
     api kotlinLib.stdLib
@@ -65,6 +66,8 @@ dependencies {
     api timber
 
     api anko.common
+
+    api androidAgo
 
     api room.runtime
     api room.rxjava2

@@ -25,9 +25,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+kapt {
+    generateStubs true
+    correctErrorTypes = true
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':common')
+    implementation project(':account')
+
+    kapt deepLinkDispatch.processor
+    kapt epoxy.processor
 }

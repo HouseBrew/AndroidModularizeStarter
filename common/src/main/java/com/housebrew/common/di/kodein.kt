@@ -6,17 +6,25 @@ import com.housebrew.common.apis.getRetrofit
 import com.housebrew.common.bases.BaseContext
 import com.housebrew.common.extensions.AppSchedulerProvider
 import com.housebrew.common.extensions.SchedulerProvider
+import com.housebrew.common.repos.NewsRepo
 import org.kodein.di.Kodein
 import org.kodein.di.android.androidModule
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.eagerSingleton
+import org.kodein.di.generic.instance
 import org.kodein.di.generic.singleton
+import retrofit2.Retrofit
 import java.lang.ref.WeakReference
 
-fun diModel(baseContext: BaseContext) = Kodein.Module {
+/**
+ * To create module for dependency injection
+ */
+fun diModule(baseContext: BaseContext) = Kodein.Module {
     import(androidModule(baseContext))
+    bind<Retrofit>() with singleton { getRetrofit(baseContext) }
     bind<SchedulerProvider>() with eagerSingleton { AppSchedulerProvider() }
-    bind<NewsService>() with singleton { getRetrofit(baseContext).create(NewsService::class.java) }
+    bind<NewsService>() with singleton { instance<Retrofit>().create(NewsService::class.java) }
+    bind<NewsRepo>() with singleton { NewsRepo(instance(), instance()) }
 }
 
 object KodeinViewModelInjector {

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ModularizeStarter.iml" filepath="$PROJECT_DIR$/ModularizeStarter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidModularizeStarter.iml" filepath="$PROJECT_DIR$/AndroidModularizeStarter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account/account.iml" filepath="$PROJECT_DIR$/account/account.iml" />
+      <module fileurl="file://$PROJECT_DIR$/accountApp/accountApp.iml" filepath="$PROJECT_DIR$/accountApp/accountApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
     </modules>

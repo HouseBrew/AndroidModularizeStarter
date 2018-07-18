@@ -1,31 +1,8 @@
 package com.housebrew.common
 
-object SharedPrefKeys {
-}
-
-object Endpoints {
-
-}
-
-object Boardcasts {
-}
-
-object TimeFormat {
-    const val YYYYMMDDHHmmssSSSZ = "yyyy-MM-dd HH:mm:ss.SSSZ"
-    const val YYYYMMDDHHmmssSSSSSSZ = "yyyy-MM-dd HH:mm:ss.SSSSSSZ"
-    const val YYYYMMDDHHmmssZZZ = "yyyy-MM-dd HH:mm:ssZZZ"
-    const val YYYYMMDDHHmmss = "yyyy-MM-dd HH:mm:ss"
-    const val YYYYMMDDHHmm = "yyyyy-MM-dd HH:mm"
-    const val YYYYMMDD = "yyyy-MM-dd"
-    const val HHmm = "HH:mm"
-    const val HHmmss = "HH:mm:ss"
-    const val GMT = "EEE, dd MMM yyyy HH:mm:ss z"
-    const val MMMDDYYYY = "MMM dd, yyyy"
-}
-
-object IntentKey {
-}
-
+/**
+ * A list of country that supported by News API
+ */
 val NEWS_COUNTRY_OPTIONS = arrayListOf(
     "ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu",
     "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in",
@@ -34,8 +11,14 @@ val NEWS_COUNTRY_OPTIONS = arrayListOf(
     "tr", "tw", "ua", "us", "ve", "za"
 )
 
+/**
+ * A list of categories that supported by News API
+ */
 val NEWS_CATEGORY_OPTIONS = arrayListOf(
     "business", "entertainment", "general", "health", "science", "sports", "technology"
 )
 
+/**
+ * A map that used to track page in runtime
+ */
 val PAGE_MAP = mutableMapOf<String, Int>()

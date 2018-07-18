@@ -1,6 +1,8 @@
 package com.housebrew.common.apis
 
 import android.content.Context
+import com.facebook.stetho.Stetho
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.GsonBuilder
 import com.housebrew.common.R
 import okhttp3.OkHttpClient
@@ -8,7 +10,11 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-
+/**
+ * To get a retrofit instance for Dependency injection
+ *
+ * @param context current application context
+ */
 fun getRetrofit(context: Context): Retrofit = Retrofit.Builder()
     .baseUrl("https://newsapi.org/")
     .client(OkHttpClient.Builder()
@@ -18,6 +24,7 @@ fun getRetrofit(context: Context): Retrofit = Retrofit.Builder()
                 .build()
             it.proceed(req)
         }
+        .addNetworkInterceptor(StethoInterceptor())
         .build())
     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     .addConverterFactory(GsonConverterFactory.create(
