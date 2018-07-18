@@ -6,8 +6,9 @@ This is a simple news headline reading app with dummy user system to demonstrate
 
 1. Reduce build time
 2. Reuse common logic/style/etc across applications/modules
-3. Easier to port to Instant apps
-4. Easier for teams who work on same codebase
+3. Easier to adopt TDD on UI
+4. Easier to port to Instant apps
+5. Easier for teams who work on same codebase
 
 ### Project Structure
 
