@@ -9,6 +9,7 @@ class AppContext : BaseContext() {
         super.onCreate()
 
         if (BuildConfig.DEBUG) {
+            // Set debug tools
             Timber.plant(Timber.DebugTree())
             Stetho.initializeWithDefaults(this@AppContext)
         }

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * API interface to News API
+ * Retrofit API interface to News API
  */
 interface NewsService {
     @GET("v2/top-headlines")

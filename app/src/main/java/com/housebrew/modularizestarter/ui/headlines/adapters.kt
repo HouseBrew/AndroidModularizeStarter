@@ -9,6 +9,9 @@ import com.housebrew.common.models.NewsHeadline
 import com.housebrew.modularizestarter.BR
 import com.housebrew.modularizestarter.R
 
+/**
+ * Epoxy model for news banner view holder
+ */
 @EpoxyModelClass(layout = R.layout.vh_news_banner)
 abstract class NewsBannerModel : DataBindingEpoxyModel() {
     @EpoxyAttribute
@@ -21,6 +24,9 @@ abstract class NewsBannerModel : DataBindingEpoxyModel() {
     }
 }
 
+/**
+ * Epoxy List Controller for news headlines
+ */
 class NewsBannerListController : TypedEpoxyController<ArrayList<NewsHeadline>>() {
     override fun buildModels(data: ArrayList<NewsHeadline>?) {
         data?.forEach {

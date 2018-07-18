@@ -19,6 +19,10 @@ import org.kodein.di.generic.instance
 import org.kodein.di.generic.provider
 import timber.log.Timber
 
+/**
+ * ViewModel for HeadlinesFragment
+ * Managing headlines related data and lifecycle
+ */
 class HeadlinesViewModel(private val newsRepo: NewsRepo) : BaseViewModel() {
     val news: MutableLiveData<ArrayList<NewsHeadline>> = MutableLiveData()
 
@@ -36,6 +40,9 @@ class HeadlinesViewModel(private val newsRepo: NewsRepo) : BaseViewModel() {
     }
 }
 
+/**
+ * A fragment that shows news headline
+ */
 class HeadlinesFragment : BaseFragment() {
 
     private val viewModel by viewModelBinder<HeadlinesViewModel> {
@@ -48,14 +55,18 @@ class HeadlinesFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        // When pull to refresh, trigger refresh in viewModel
         refreshLayout.setOnRefreshListener { viewModel.onRefresh() }
 
+        // When the news in view model is changed, re-render the recyclerview items
         viewModel.news.observe(this, Observer {
             refreshLayout.isRefreshing = false
             controller.setData(it)
         })
 
+        // To make recyclerview stop on 1 item after scrolling
         LinearSnapHelper().attachToRecyclerView(recyclerHeadlines)
+        // Set Horizontal LinearLayoutManager
         recyclerHeadlines.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerHeadlines.setController(controller)
         viewModel.getHeadlines()

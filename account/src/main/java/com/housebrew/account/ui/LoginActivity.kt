@@ -1,12 +1,10 @@
 package com.housebrew.account.ui
 
 import android.os.Bundle
-import android.text.style.TtsSpan
 import com.housebrew.account.R
 import com.housebrew.common.AppDeepLink
 import com.housebrew.common.Navigator
 import com.housebrew.common.PageDeeplinks
-import com.housebrew.common.TimeFormat
 import com.housebrew.common.bases.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import timber.log.Timber
