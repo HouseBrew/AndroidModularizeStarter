@@ -13,6 +13,7 @@ import timber.log.Timber
 
 @AppDeepLink(PageDeeplinks.LOGIN)
 class LoginActivity : BaseActivity() {
+    // TODO dummy user system will be done in next milestone
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

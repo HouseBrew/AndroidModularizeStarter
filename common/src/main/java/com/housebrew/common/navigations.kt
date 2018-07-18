@@ -4,14 +4,21 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import com.airbnb.deeplinkdispatch.DeepLinkSpec
+import com.housebrew.common.extensions.toAppDeepLink
 
-private const val DEEPLINK_PREFIX = "app://msapp"
+const val DEEPLINK_PREFIX = "app://msapp"
 
+/**
+ * Object that store all deep links
+ */
 object PageDeeplinks {
     const val LOGIN = "/login"
     const val MAIN = "/main"
 }
 
+/**
+ * Centralize cross module navigation
+ */
 object Navigator {
     fun toMainPage(context: Context) {
         val intent = Intent(Intent.ACTION_VIEW)
@@ -26,8 +33,9 @@ object Navigator {
     }
 }
 
-fun String.toAppDeepLink() = "$DEEPLINK_PREFIX$this"
-
+/**
+ * Custom annotation for deep linked classes
+ */
 @DeepLinkSpec(prefix = [DEEPLINK_PREFIX])
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.CLASS)
