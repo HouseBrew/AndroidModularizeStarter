@@ -4,11 +4,23 @@ This is a simple news headline reading app with dummy user system to demonstrate
 
 ### Why modularizing
 
+Previously, my team and I wanted to start Test-Driven-Development (TDD) on a gigantic codebase. However, the build time of the project is ~3 minutes, which means for every iteration, we need to wait for 3 minutes. 
+
+In order to solve this problem, we tried Instant run and it helps but not very significant as the problem is about the size of the codebase is too large. Therefore, we ended up doing a huge migration to modularize our code base.
+
+As the result, under development, we don't need to build modules that we are not using, average build time per module is less than 30 seconds.
+
+### Advantages of modularizing
+
 1. Reduce build time
 2. Reuse common logic/style/etc across applications/modules
 3. Easier to adopt TDD on UI
 4. Easier to port to Instant apps
 5. Easier for teams who work on same codebase
+
+### How do we modularize
+
+First, we extract APIs, models, non-feature sensitive helpers into a module called common, which will be a dependency for every modules. Then we extract features from the app module. i.e. the login and registration flow in an app can be a module. When we need to develop and test a feature, we only need to build that and the common modules, which means we don't need to spend time to build something that we don't need.
 
 ### Project Structure
 
