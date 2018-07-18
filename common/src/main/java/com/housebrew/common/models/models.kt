@@ -6,13 +6,13 @@ enum class RespStatus {
     OK, ERROR
 }
 
-class NewsHeadlineRespModel(
+data class NewsHeadlineRespModel(
     val status: String,
     val totalResults: Int,
     val articles: List<NewsHeadline>
 )
 
-class NewsHeadline(
+data class NewsHeadline(
     val source: NewsSource = NewsSource(),
     val author: String,
     val title: String,

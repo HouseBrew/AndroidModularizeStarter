@@ -1,6 +1,8 @@
 package com.housebrew.common.apis
 
 import android.content.Context
+import com.facebook.stetho.Stetho
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.GsonBuilder
 import com.housebrew.common.R
 import okhttp3.OkHttpClient
@@ -18,6 +20,7 @@ fun getRetrofit(context: Context): Retrofit = Retrofit.Builder()
                 .build()
             it.proceed(req)
         }
+        .addNetworkInterceptor(StethoInterceptor())
         .build())
     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
     .addConverterFactory(GsonConverterFactory.create(

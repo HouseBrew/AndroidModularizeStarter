@@ -7,6 +7,7 @@ import android.support.multidex.MultiDexApplication
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.housebrew.common.di.KodeinViewModelInjector
 import com.housebrew.common.di.diModel
 import io.reactivex.disposables.CompositeDisposable
@@ -20,6 +21,7 @@ open class BaseActivity : AppCompatActivity(), KodeinAware {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Fresco.initialize(this)
         KodeinViewModelInjector.setContainerProvider { kodein }
     }
 

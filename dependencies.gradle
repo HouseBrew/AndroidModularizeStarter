@@ -8,6 +8,14 @@ ext {
     final kodein_version = '5.0.0'
     final work_version = "1.0.0-alpha04"
 
+    final nav_version = "1.0.0-alpha03"
+
+    nav = [
+            fragment  : "android.arch.navigation:navigation-fragment:$nav_version",
+            ui        : "android.arch.navigation:navigation-ui:$nav_version",
+            testHelper: "android.arch.navigation:navigation-testing:$nav_version"
+    ]
+
     supportedLibraries = [
             appCompat         : "com.android.support:appcompat-v7:$support_library_version",
             design            : "com.android.support:design:$support_library_version",
@@ -95,4 +103,6 @@ ext {
             gsonConverter: 'com.squareup.retrofit2:converter-gson:2.4.0',
             rx2Adapter   : 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     ]
+
+    androidAgo = 'com.github.curioustechizen.android-ago:library:1.4.0'
 }
