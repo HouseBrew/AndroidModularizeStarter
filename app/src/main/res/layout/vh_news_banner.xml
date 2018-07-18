@@ -47,10 +47,10 @@
                 android:layout_marginRight="16dp"
                 android:fontFamily="@font/amiko_semibold"
                 app:layout_constraintHorizontal_bias="0.0"
-                android:layout_marginBottom="8dp"
                 android:text="@{news.title}"
-                app:layout_constraintBottom_toTopOf="@+id/txtNewsSource"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView2"/>
 
         <TextView
                 android:layout_width="wrap_content"
@@ -74,6 +74,18 @@
                 app:layout_constraintBaseline_toBaselineOf="@+id/txtNewsSource"
                 tools:text="9 minutes ago"
                 android:textColor="@android:color/white"/>
+
+        <TextView
+                android:text="@{news.description}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                app:layout_constraintStart_toStartOf="@+id/txtNewsTitle"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/txtNewsSource"
+                app:layout_constraintEnd_toEndOf="@+id/txtNewsTitle"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/roboto"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

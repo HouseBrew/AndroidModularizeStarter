@@ -3,6 +3,7 @@ package com.housebrew.modularizestarter.ui.headlines
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -21,14 +22,17 @@ import timber.log.Timber
 class HeadlinesViewModel(private val newsRepo: NewsRepo) : BaseViewModel() {
     val news: MutableLiveData<ArrayList<NewsHeadline>> = MutableLiveData()
 
-    fun getHeadlines() {
-        compositeDisposable.add(newsRepo.getCountryHeadLines().subscribe {
+    fun getHeadlines(isRefresh: Boolean = false) {
+        compositeDisposable.add(newsRepo.getCountryHeadLines(isRefresh).subscribe {
             Timber.d(it.toString())
-
             val currentNews = ArrayList(news.value ?: arrayListOf())
             currentNews.addAll(it)
             news.value = currentNews
         })
+    }
+
+    fun onRefresh(){
+        getHeadlines(true)
     }
 }
 
@@ -44,11 +48,15 @@ class HeadlinesFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        refreshLayout.setOnRefreshListener { viewModel.onRefresh() }
+
         viewModel.news.observe(this, Observer {
+            refreshLayout.isRefreshing = false
             controller.setData(it)
         })
 
         LinearSnapHelper().attachToRecyclerView(recyclerHeadlines)
+        recyclerHeadlines.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerHeadlines.setController(controller)
         viewModel.getHeadlines()
     }

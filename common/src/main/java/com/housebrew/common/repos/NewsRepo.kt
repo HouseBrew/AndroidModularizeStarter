@@ -14,10 +14,10 @@ import java.util.Locale
 
 class NewsRepo(private val newsService: NewsService, private val schedulerProvider: SchedulerProvider) {
 
-    fun getCountryHeadLines(): Observable<List<NewsHeadline>> {
+    fun getCountryHeadLines(isRefresh: Boolean = false): Observable<List<NewsHeadline>> {
         val localeCountry = Locale.getDefault().country.toLowerCase()
         val country = if (localeCountry in NEWS_CATEGORY_OPTIONS) localeCountry else "us"
-        val page = PAGE_MAP[country] ?: 1
+        val page = if (isRefresh) 1 else PAGE_MAP[country] ?: 1
         return newsService.getCountryHeadlines(
             country = country,
             pageNumber = page)
