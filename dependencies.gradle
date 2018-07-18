@@ -74,8 +74,6 @@ ext {
             rx2Idler       : 'com.squareup.rx.idler:rx2-idler:0.9.0'
     ]
 
-    lottie = 'com.airbnb.android:lottie:2.5.3'
-
     timber = 'com.jakewharton.timber:timber:4.7.0'
 
     gson = 'com.google.code.gson:gson:2.8.4'
