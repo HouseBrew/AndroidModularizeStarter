@@ -58,7 +58,7 @@ dependencies {
     api epoxy.epoxy
     api epoxy.databinding
     kapt epoxy.processor
-    
+
     api gson
 
     api kotlinLib.stdLib
